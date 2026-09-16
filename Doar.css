@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 1. O fundo entra diretamente no HTML e BODY */
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  
+  /* Coloque aqui a imagem do fundo que exportou do Figma */
+  background-image: url('Group 92 (2).png');
+  background-size: cover;       /* Faz a imagem cobrir toda a tela */
+  background-position: center;  /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Não repete a imagem */
+  background-attachment: fixed; /* Mantém o fundo fixo mesmo se rolar */
+}
+
+/* 2. Estrutura do conteúdo sobre o fundo */
+.topo {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Menu Superior */
+.header {
+  
+}
+
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: rgba(90, 105, 95, 0.45);
+  backdrop-filter: blur(8px);
+  padding: 6px 6px 6px 24px;
+  border-radius: 30px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.nav .btn-donate {
+  background-color: #ffcc00;
+  color: #ffffff;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+/* Conteúdo Principal */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 80px;
+  gap: 40px;
+  flex: 1; /* Faz ocupar o restante da altura da tela */
+}
+
+.hero-content {
+  max-width: 500px;
+}
+
+.subtitle-tag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #799370;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.subtitle-tag .line {
+  width: 25px;
+  height: 2px;
+  background-color: #799370;
+}
+
+.hero-title {
+  font-size: 40px;
+  line-height: 1.15;
+  color: #1a1a1a;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.hero-title .highlight {
+  color: #f5cc38;
+}
+
+.hero-description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #444;
+}
+
+
+.hero-image-container {
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;     /* Centraliza a imagem e o texto entre si */
+}
+
+.img-criancas {
+  width: 100%;
+  border-radius: 24px;
+  display: block;
+  opacity: 0.85;
+}
+
+.image-caption h3 {
+  color: #d94336;
+  font-size: 13px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.image-caption p {
+  font-size: 12px;
+  color: #444;
+}
