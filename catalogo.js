@@ -1,4 +1,4 @@
-// Pega o campo de busca e todos os cards de produto da página
+
 const searchInput = document.getElementById("searchInput");
 const cards = document.querySelectorAll(".product-card");
 
@@ -11,12 +11,12 @@ function filtrarBrinquedos() {
       .trim();
 
     if (nomeBrinquedo.includes(pesquisa)) {
-      card.style.display = ""; // mostra o card
+      card.style.display = ""; 
     } else {
-      card.style.display = "none"; // esconde o card
+      card.style.display = "none"; 
     }
   });
 }
 
-// Filtra a cada letra digitada na busca (busca "ao vivo")
+
 searchInput.addEventListener("input", filtrarBrinquedos);
