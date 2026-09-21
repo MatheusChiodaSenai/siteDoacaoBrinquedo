@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     donateValue.textContent = value ? value : '-';
   }
 
-  // Seleção rápida de valor
+
   amountButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       amountButtons.forEach(b => b.classList.remove('is-selected'));
@@ -18,13 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Valor digitado manualmente
+ 
   amountInput.addEventListener('input', () => {
     amountButtons.forEach(b => b.classList.remove('is-selected'));
     updateDonateValue(amountInput.value);
   });
 
-  // Seleção da forma de pagamento
+ 
   paymentButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       paymentButtons.forEach(b => b.classList.remove('is-selected'));
