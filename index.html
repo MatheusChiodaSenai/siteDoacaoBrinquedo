@@ -21,7 +21,11 @@
                 <img src="img/logo.png" alt="" class="logoImg">
 
             </div>
+            <div class="menu">
+                <img src="img/Hamburguer.png" alt="">
+            </div>
             <nav>
+                <img src="img/Fechar.png" alt="" class="close">
                 <a href="Catalogo.html">Nossos brinquedos</a>
                 <a href="Contato.html">Contato</a>
                 <a href="Home.html">Home</a>
@@ -98,7 +102,7 @@
 
             <div class="eventContent">
                 <h1>Próximo Evento</h1>
-                <h1><span>Jaboticabal</span></h1>
+                <img src="img/TextoJbk.png" alt="">
 
                 <div class="info">
                     <img src="img/Loc.png" alt="">
@@ -108,13 +112,13 @@
                     <img src="img/Data.png" alt="">
                     <h2>12/10/2026</h2>
                 </div>
-                <button>Vou participar</button>
+                <button id="participar">Vou participar</button>
 
                 <div class="partQtd">
                     <div class="branco">
-                        <div class="amarelo"></div>
+                        <div id="amarelo"></div>
                     </div>
-                    <h4 id="PartNumber"></h4>
+                    <h4 id="PartNumber">0/100</h4>
                 </div>
             </div>
             <div class="map">
@@ -138,19 +142,19 @@
                 "Minha filha Sofia sonhava com um bichinho de pelúcia há meses, mas nossa situação não permitia. Quando
                 recebemos o ursinho pela campanha, ela não largou mais! Ver o sorriso dela abraçando o presente foi
                 emocionante. Obrigada por lembrarem que toda criança merece um pouco de carinho e alegria."
-
+                <br><br><br><br>
                 <span>— Marina Alves, mãe da Sofia (5 anos)</span>
             </p>
         </div>
         <div class="depoLine">
-            <img src="img/depoimento2.png" alt="">
             <p>
                 "Meu filho Enzo é apaixonado por dinossauros, e quando abriu a caixa com aqueles bichinhos coloridos,
                 gritou de felicidade. Foi como se o Natal tivesse chegado antes! Fico muito grata por existirem pessoas
                 dispostas a fazer esse tipo de diferença na vida das nossas crianças."
-
+                <br><br><br><br>
                 <span>— Camila Ribeiro, mãe do Enzo (4 anos)</span>
             </p>
+            <img src="img/depoimento2.png" alt="">
         </div>
     </div>
 
@@ -207,7 +211,21 @@
             <p>&copy; 2026. Todos os direitos reservados.</p>
         </div>
     </footer>
+    <script>
+        var button = document.getElementById("participar")
+        var numero = document.getElementById("PartNumber")
+        var linha = document.getElementById("amarelo")
+        var contador = 0
+        button.addEventListener("click", () => {
+            contador = contador + 1
 
+            numero.innerHTML = `${contador}/100`
+
+            linha.style.width = (contador / 100) * 100 + "%"
+
+            console.log(contador)
+        })
+    </script>
 </body>
 
 </html>
