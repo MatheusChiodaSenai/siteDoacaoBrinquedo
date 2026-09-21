@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="doar.css">
+</head>
+<body>
+    
+   <header>
+        <div class="headerContent">
+            <div class="logo">
+                <img src="Fotos/logo (1).png" alt="" class="logoImg">
+
+
+            </div>
+            <nav>
+                <a href="Catalogo.html">Nossos brinquedos</a>
+                <a href="Contato.html">Contato</a>
+                <a href="Home.html">Home</a>
+                <a href="Doe.html"><button>Doe agora</button></a>
+            </nav>
+        </div>
+    </header>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+            
+         <section class="hero">
+
+   <img src="" alt="">
+    <span class="shape shape--circle-yellow"></span>
+    <span class="shape shape--dot-top"></span>
+    <span class="shape shape--dot-bottom"></span>
+    <span class="shape shape--star">★</span>
+
+    
+
+   
+    <div class="hero__content">
+      <a href="#" class="badge">
+        <span class="badge__icon">📦</span>
+        Guia da doação
+      </a>
+
+      <h1 class="hero__title">
+        Doe Agora e Faça<br>
+        uma Criança Sorrir
+      </h1>
+
+      <p class="hero__subtitle">
+        Com sua doação em dinheiro compramos brinquedos novos a preço de atacado, seu real rende mais!
+      </p>
+    </div>
+
+  </section>
+
+
+  <div class="donation-card">
+
+    <h2 class="donation-card__title">Quanto você quer doar</h2>
+
+    <div class="amount-options">
+      <button type="button" class="amount-btn" data-value="15">$ 15</button>
+      <button type="button" class="amount-btn" data-value="25">$ 25</button>
+      <button type="button" class="amount-btn" data-value="50">$ 50</button>
+      <button type="button" class="amount-btn" data-value="75">$ 75</button>
+      <button type="button" class="amount-btn" data-value="100">$ 100</button>
+    </div>
+
+    <input
+      type="number"
+      class="amount-input"
+      placeholder="Ex : 75"
+      min="1"
+    >
+
+    <h3 class="donation-card__subtitle">Formas de pagamentos</h3>
+
+    <div class="payment-options">
+      <button type="button" class="payment-btn" data-method="pix">
+        <svg class="payment-btn__icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2l4.5 4.5c.8.8.8 2.2 0 3L12 14l-4.5-4.5c-.8-.8-.8-2.2 0-3L12 2z"/>
+          <path d="M12 22l-4.5-4.5c-.8-.8-.8-2.2 0-3L12 10l4.5 4.5c.8.8.8 2.2 0 3L12 22z"/>
+        </svg>
+        <span>Pix</span>
+      </button>
+
+      <button type="button" class="payment-btn" data-method="cartao">
+        <svg class="payment-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="5" width="20" height="14" rx="2"/>
+          <line x1="2" y1="10" x2="22" y2="10"/>
+          <line x1="6" y1="15" x2="10" y2="15"/>
+        </svg>
+        <span>Cartão</span>
+      </button>
+
+      <button type="button" class="payment-btn" data-method="boleto">
+        <svg class="payment-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M7 3h8l4 4v14H7z"/>
+          <path d="M15 3v4h4"/>
+          <line x1="9" y1="12" x2="17" y2="12"/>
+          <line x1="9" y1="15" x2="17" y2="15"/>
+          <line x1="9" y1="18" x2="14" y2="18"/>
+        </svg>
+        <span>Boleto</span>
+      </button>
+    </div>
+
+    <button type="button" class="donate-btn">
+      Doar R$ <span class="donate-btn__value">-</span> agora 💛
+    </button>
+
+  </div>
+
+  <script src="donation-script.js"></script>
+
+ 
+
+
+</body>
+</html>
