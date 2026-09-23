@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Doe Agora e Faça uma Criança Sorrir</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="DoardInheiro.css">
+</head>
+
+<body>
+    <header>
+        <div class="headerContent">
+            <div class="logo">
+                <img src="img/logo (2).png" alt="Logo Doe Agora" class="logoImg">
+            </div>
+            <nav>
+                <a href="Home.html">Home</a>
+                <a href="Catalogo.html">Nossos brinquedos</a>
+                <a href="Contato.html">Contato</a>
+                <a href="Doe.html" class="btnDoar">Doe agora</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="texto">
+                <h1>Doe Agora e Faça<br>uma Criança<br><span class="destaque">Sorrir <span class="estrela">🌟</span></span></h1>
+                <p class="descricao">Com sua doação em dinheiro compramos brinquedos novos a preço de atacado - garantindo mais impacto por cada real doado.</p>
+                <ul class="numeros">
+                    <li><strong>14.200</strong><span>crianças atendidas</span></li>
+                    <li><strong>R$ 890k</strong><span>doados em 2024</span></li>
+                    <li><strong>3.400</strong><span>doadores ativos</span></li>
+                    <li><strong>98%</strong><span>satisfação</span></li>
+                </ul>
+            </div>
+            <div class="fotos">
+                <img class="foto grande" src="img/4b9f894cea6c4cacb4d7d47be352f813.jpg" alt="Criança brincando com blocos de montar">
+                <img class="foto" src="img/c8a0df863fbf852fa0c3aa861cecc78a.jpg" alt="Brinquedos espalhados no tapete">
+                <img class="foto" src="img/ce662a9a442bb353a370909b37b46725.jpg" alt="Crianças montando com blocos coloridos">
+            </div>
+        </section>
+    </main>
+
+<main class="doe">
+        <form class="doeGrid" id="formDoacao">
+
+            <!-- Coluna esquerda -->
+            <section class="doeValor">
+                <h1>Quanto você quer doar?</h1>
+                <p class="subtitulo">Escolha um valor ou digite o que preferir</p>
+
+                <div class="chips" role="group" aria-label="Valores sugeridos">
+                    <button type="button" class="chip" data-valor="15">R$ 15</button>
+                    <button type="button" class="chip" data-valor="25">R$ 25</button>
+                    <button type="button" class="chip" data-valor="50">R$ 50</button>
+                    <button type="button" class="chip" data-valor="75">R$ 75</button>
+                    <button type="button" class="chip" data-valor="100">R$ 100</button>
+                </div>
+
+                <div class="campoValor">
+                    <div class="stepper">
+                        <button type="button" id="mais" aria-label="Aumentar valor">▲</button>
+                        <button type="button" id="menos" aria-label="Diminuir valor">▼</button>
+                    </div>
+                    <label for="valor" class="sr-only">Valor da doação em reais</label>
+                    <input type="number" id="valor" name="valor" min="1" step="1" value="6" inputmode="numeric">
+                </div>
+
+                <h2>Formas de pagamento</h2>
+                <div class="pagamentos" role="radiogroup" aria-label="Forma de pagamento">
+                    <label class="pagamento">
+                        <input type="radio" name="pagamento" value="pix" checked>
+                        <span class="cartao">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <circle cx="24" cy="13" r="8"/>
+                                <path d="M24 9v8M26.5 10.8c-.6-.7-1.5-1-2.6-1-1.6 0-2.7.8-2.7 2 0 2.7 5.6 1.4 5.6 4 0 1.2-1.1 2-2.8 2-1.3 0-2.3-.4-3-1.2"/>
+                                <path d="M4 33h8l8 3h8a3 3 0 0 1 0 6H16l-4-1.5M28 40l13-6.5a2.5 2.5 0 0 1 2.5 4.3L33 44l-17 2H4"/>
+                            </svg>
+                            <strong>Pix</strong>
+                        </span>
+                    </label>
+
+                    <label class="pagamento">
+                        <input type="radio" name="pagamento" value="cartao">
+                        <span class="cartao">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <rect x="12" y="10" width="30" height="22" rx="3"/>
+                                <path d="M6 18v18a3 3 0 0 0 3 3h27"/>
+                                <path d="M12 18h30M17 26h8"/>
+                            </svg>
+                            <strong>Cartão</strong>
+                        </span>
+                    </label>
+
+                    <label class="pagamento">
+                        <input type="radio" name="pagamento" value="boleto">
+                        <span class="cartao">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M12 6h24v36l-4-3-4 3-4-3-4 3-4-3-4 3z"/>
+                                <path d="M18 14h12M18 21h12M18 28h6"/>
+                            </svg>
+                            <strong>Boleto</strong>
+                        </span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btnDoarValor">
+                    Doar R$ <span data-valor-texto>6</span> <span aria-hidden="true">💛</span>
+                </button>
+            </section>
+
+            <!-- Coluna direita -->
+            <aside class="doeLateral">
+                <div class="preferencias">
+                    <h2>Preferências de doação</h2>
+
+                    <ul class="lista">
+                        <li class="pref" style="--cor: #5FCFC0; --texto: #3aa99c;">
+                            <span class="icone" style="background:#d6f2ff" aria-hidden="true">🔁</span>
+                            <div class="prefTexto">
+                                <strong>Doação recorrente</strong>
+                                <small>Doe todo mês automaticamente</small>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" name="recorrente" checked aria-label="Doação recorrente">
+                                <span class="trilho"></span>
+                            </label>
+                        </li>
+
+                        <li class="pref" style="--cor: #5FCFC0; --texto: #8a94b0;">
+                            <span class="icone" style="background:#e9e4e0" aria-hidden="true">🕵️</span>
+                            <div class="prefTexto">
+                                <strong>Doação anônima</strong>
+                                <small>Seu nome não será divulgado</small>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" name="anonima" aria-label="Doação anônima">
+                                <span class="trilho"></span>
+                            </label>
+                        </li>
+
+                        <li class="pref" style="--cor: #F59E0B; --texto: #e59500;">
+                            <span class="icone" style="background:#d8ecd6" aria-hidden="true">📬</span>
+                            <div class="prefTexto">
+                                <strong>Receber atualizações</strong>
+                                <small>E-mail com impacto da sua doação</small>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" name="atualizacoes" checked aria-label="Receber atualizações">
+                                <span class="trilho"></span>
+                            </label>
+                        </li>
+
+                        <li class="pref" style="--cor: #5FCFC0; --texto: #8a94b0;">
+                            <span class="icone" style="background:#f3e4e4" aria-hidden="true">📜</span>
+                            <div class="prefTexto">
+                                <strong>Certificado de doação</strong>
+                                <small>Receba comprovante em PDF</small>
+                            </div>
+                            <label class="switch">
+                                <input type="checkbox" name="certificado" checked aria-label="Certificado de doação">
+                                <span class="trilho"></span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="garantia" aria-live="polite">
+                    <p class="garantiaTitulo">Com R$ <span data-valor-texto>6</span> você garante:</p>
+                    <p class="garantiaDestaque"><span aria-hidden="true">🎁</span> Sua parte importa</p>
+                    <p class="garantiaTexto">100% do valor vai direto para compra de brinquedos novos</p>
+                </div>
+            </aside>
+        </form>
+    </main>
+    <script src="doe.js" defer></script>
+</body>
+
+
+</body>
+</html>
