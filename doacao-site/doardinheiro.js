@@ -1,3 +1,5 @@
+
+
 const form = document.getElementById('formDoacao');
 const input = document.getElementById('valor');
 const textos = document.querySelectorAll('[data-valor-texto]');
@@ -40,4 +42,24 @@ form.addEventListener('submit', e => {
     console.log('Doação:', dados);
 });
 
+let btn = document.querySelector(".menu")
+let menu = document.querySelector(".menuInfo")
+let menuClose = document.querySelector(".close")
+
+
+btn.addEventListener("click",
+    () => {
+        menu.classList.add("itsOpen")
+        btn.classList.add("")
+    }
+)
+menuClose.addEventListener("click",
+    () => {
+        menu.classList.remove("itsOpen")
+        btn.classList.remove("a")
+    }
+)
+
 atualizar();
+
+
