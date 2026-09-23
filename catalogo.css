@@ -209,7 +209,7 @@ header {
 
 
 .hero-image img {
-  max-width: 420px;
+  max-width: 620px;
   width: 100%;
   height: auto;
 }
@@ -438,11 +438,57 @@ header {
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .catalog-section {
+    margin: 20px auto;
+  }
 }
 
 @media (max-width: 500px) {
   .products-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .product-card h3 {
+    font-size: 0.8rem;
+  }
+
+  .badge {
+    font-size: 0.68rem;
+    padding: 3px 9px;
+  }
+}
+
+.product-card.escondido-mobile {
+  display: none;
+}
+
+.ver-mais-container {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0 10px;
+}
+
+.btn-ver-mais {
+  background-color: #222222;
+  color: #ffffff;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-ver-mais:hover {
+  background-color: #444444;
+}
+
+
+@media (min-width: 901px) {
+  .ver-mais-container {
+    display: none;
   }
 }
 
