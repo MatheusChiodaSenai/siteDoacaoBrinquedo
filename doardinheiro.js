@@ -40,7 +40,47 @@ form.addEventListener('submit', e => {
     
     const dados = Object.fromEntries(new FormData(form));
     console.log('Doação:', dados);
+
+    mostrarConfirmacaoDoacao(valorAtual());
 });
+
+// Mostra na tela que a doação foi feita: o botão confirma por alguns
+// segundos e um aviso aparece no canto da tela.
+function mostrarConfirmacaoDoacao(valor) {
+    const textoOriginal = botaoDoar.innerHTML;
+
+    botaoDoar.disabled = true;
+    botaoDoar.classList.add('doado');
+    botaoDoar.innerHTML = `Doação de R$ ${valor.toLocaleString('pt-BR')} confirmada! ✅`;
+
+    mostrarToastDoacao(`🎉 Obrigado! Sua doação de R$ ${valor.toLocaleString('pt-BR')} foi registrada.`);
+
+    setTimeout(() => {
+        botaoDoar.classList.remove('doado');
+        botaoDoar.innerHTML = textoOriginal;
+        botaoDoar.disabled = valorAtual() === 0;
+    }, 3500);
+}
+
+// Cria (uma única vez) e mostra um aviso flutuante na tela.
+let toastDoacaoEl = null;
+let toastDoacaoTimeout = null;
+
+function mostrarToastDoacao(mensagem) {
+    if (!toastDoacaoEl) {
+        toastDoacaoEl = document.createElement('div');
+        toastDoacaoEl.className = 'toastDoacao';
+        document.body.appendChild(toastDoacaoEl);
+    }
+
+    toastDoacaoEl.textContent = mensagem;
+    toastDoacaoEl.classList.add('visivel');
+
+    clearTimeout(toastDoacaoTimeout);
+    toastDoacaoTimeout = setTimeout(() => {
+        toastDoacaoEl.classList.remove('visivel');
+    }, 4000);
+}
 
 let btn = document.querySelector(".menu")
 let menu = document.querySelector(".menuInfo")

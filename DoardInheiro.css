@@ -864,3 +864,124 @@ footer {
   }
 }
     
+
+
+/* ================================
+   Confirmação de doação (botão "Doar")
+================================ */
+.btnDoarValor.doado {
+    background: #3fae9f;
+    color: #ffffff;
+    cursor: default;
+}
+
+
+/* ================================
+   Aviso na tela quando a doação é confirmada
+================================ */
+.toastDoacao {
+    position: fixed;
+    left: 50%;
+    bottom: 30px;
+    z-index: 1100;
+    transform: translate(-50%, 20px);
+    max-width: 90vw;
+    padding: 14px 24px;
+    background: var(--escuro);
+    color: #ffffff;
+    font-size: .9rem;
+    font-weight: 600;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s, transform .25s;
+}
+
+.toastDoacao.visivel {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+
+/* ================================
+   Ajustes extras de responsividade
+   (telas bem estreitas: celulares pequenos)
+================================ */
+@media (max-width: 450px) {
+    header .logo {
+        width: 120px;
+        height: 52px;
+    }
+
+    header nav {
+        gap: 6px 10px;
+    }
+
+    header nav a,
+    header nav .btnDoar {
+        font-size: .78rem;
+    }
+
+    header nav .btnDoar {
+        height: 42px;
+        width: 84px;
+    }
+
+    /* com o header ocupando 2 linhas em telas estreitas, o conteúdo
+       de baixo precisa de mais espaço no topo pra não ficar escondido */
+    .hero {
+        padding-top: 170px;
+    }
+
+    .doe {
+        padding-top: 170px;
+    }
+
+    .doeValor h1 {
+        font-size: 1.7rem;
+    }
+
+    .numeros {
+        gap: 12px 24px;
+    }
+
+    .pagamentos {
+        grid-template-columns: 1fr;
+    }
+
+    .pagamento .cartao {
+        flex-direction: row;
+        justify-content: flex-start;
+        height: auto;
+        padding: 14px 18px;
+        gap: 16px;
+    }
+
+    .pagamento .cartao svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    .campoValor {
+        height: 54px;
+    }
+
+    .campoValor input {
+        font-size: 1.2rem;
+    }
+
+    .preferencias {
+        padding: 24px 16px 20px;
+    }
+
+    .garantia {
+        padding: 18px 20px;
+    }
+
+    .toastDoacao {
+        font-size: .8rem;
+        padding: 12px 18px;
+        bottom: 16px;
+    }
+}
