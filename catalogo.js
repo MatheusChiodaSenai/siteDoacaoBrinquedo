@@ -1,21 +1,17 @@
 
-let btn = document.querySelector(".menu")
-let menu = document.querySelector(".menuInfo")
-let menuClose = document.querySelector(".close")
+(function () {
+  const btnMenu = document.querySelector("header .menu");
+  const menuInfo = document.querySelector("header .menuInfo");
+  const menuFechar = document.querySelector("header .close");
+  if (!btnMenu || !menuInfo || !menuFechar) return;
 
-
-btn.addEventListener("click",
-    () => {
-        menu.classList.add("itsOpen")
-        btn.classList.add("a")
-    }
-)
-menuClose.addEventListener("click",
-    () => {
-        menu.classList.remove("itsOpen")
-        btn.classList.remove("a")
-    }
-)
+  btnMenu.addEventListener("click", function () {
+    menuInfo.classList.add("itsOpen");
+  });
+  menuFechar.addEventListener("click", function () {
+    menuInfo.classList.remove("itsOpen");
+  });
+})();
 
 
 const searchInput = document.getElementById("searchInput");
@@ -79,6 +75,43 @@ searchInput.addEventListener("input", filtrarBrinquedos);
 
 
 aplicarLimiteMobile();
+
+
+
+const sortSelect = document.getElementById("sortSelect");
+const productsGrid = document.querySelector(".products-grid");
+const ordemOriginal = Array.from(cards); 
+
+function ordenarBrinquedos() {
+  if (!sortSelect || !productsGrid) return;
+
+  const valor = sortSelect.value;
+  let cardsOrdenados;
+
+  if (valor === "recentes") {
+    
+    cardsOrdenados = Array.from(cards).sort(function (a, b) {
+      return Number(b.dataset.brinquedoId) - Number(a.dataset.brinquedoId);
+    });
+  } else if (valor === "antigos") {
+   
+    cardsOrdenados = Array.from(cards).sort(function (a, b) {
+      return Number(a.dataset.brinquedoId) - Number(b.dataset.brinquedoId);
+    });
+  } else {
+    cardsOrdenados = ordemOriginal;
+  }
+
+  cardsOrdenados.forEach(function (card) {
+    productsGrid.appendChild(card);
+  });
+
+  aplicarLimiteMobile();
+}
+
+if (sortSelect) {
+  sortSelect.addEventListener("change", ordenarBrinquedos);
+}
 
 
 
