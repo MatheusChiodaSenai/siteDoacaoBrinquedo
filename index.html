@@ -24,7 +24,7 @@
             <div class="menu">
                 <img src="img/Hamburguer.png" alt="">
             </div>
-            <nav>
+            <nav class="menuInfo">
                 <img src="img/Fechar.png" alt="" class="close">
                 <a href="Catalogo.html">Nossos brinquedos</a>
                 <a href="Contato.html">Contato</a>
@@ -102,7 +102,7 @@
 
             <div class="eventContent">
                 <h1>Próximo Evento</h1>
-                <img src="img/TextoJbk.png" alt="">
+                <img src="img/TextoJbk.png" class="jbk" alt="">
 
                 <div class="info">
                     <img src="img/Loc.png" alt="">
@@ -118,7 +118,7 @@
                     <div class="branco">
                         <div id="amarelo"></div>
                     </div>
-                    <h4 id="PartNumber">0/100</h4>
+                    <h4 id="PartNumber">45/100</h4>
                 </div>
             </div>
             <div class="map">
@@ -146,7 +146,7 @@
                 <span>— Marina Alves, mãe da Sofia (5 anos)</span>
             </p>
         </div>
-        <div class="depoLine">
+        <div class="depoLine b">
             <p>
                 "Meu filho Enzo é apaixonado por dinossauros, e quando abriu a caixa com aqueles bichinhos coloridos,
                 gritou de felicidade. Foi como se o Natal tivesse chegado antes! Fico muito grata por existirem pessoas
@@ -211,21 +211,7 @@
             <p>&copy; 2026. Todos os direitos reservados.</p>
         </div>
     </footer>
-    <script>
-        var button = document.getElementById("participar")
-        var numero = document.getElementById("PartNumber")
-        var linha = document.getElementById("amarelo")
-        var contador = 0
-        button.addEventListener("click", () => {
-            contador = contador + 1
-
-            numero.innerHTML = `${contador}/100`
-
-            linha.style.width = (contador / 100) * 100 + "%"
-
-            console.log(contador)
-        })
-    </script>
+    <script src="home.js"></script>
 </body>
 
 </html>
