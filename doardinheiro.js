@@ -90,7 +90,7 @@ let menuClose = document.querySelector(".close")
 btn.addEventListener("click",
     () => {
         menu.classList.add("itsOpen")
-        btn.classList.add("")
+        btn.classList.add("a")
     }
 )
 menuClose.addEventListener("click",
