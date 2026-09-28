@@ -1005,3 +1005,16 @@ footer {
         bottom: 16px;
     }
 }
+
+
+/* ================================
+   Corrige o texto do hero atrás do header (tablet / celular grande)
+   Os blocos de 900px e 600px acima zeravam o padding-top do .hero.
+   Este bloco fica por último para vencer os anteriores.
+   (abaixo de 450px continua valendo o padding-top: 170px)
+================================ */
+@media (min-width: 451px) and (max-width: 900px) {
+    .hero {
+        padding-top: 150px;
+    }
+}
