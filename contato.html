@@ -3,21 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Nosso contato</title>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="contato.css">
 </head>
 
 <body>
 
-     <!-- Header -->
     <header>
         <div class="headerContent">
             <div class="logo">
                 <img src="img/logo (2).png" alt="" class="logoImg">
+
+
             </div>
-            <nav>
+            <div class="menu">
+                <img src="img/download.png" alt="">
+            </div>
+            <nav class="menuInfo">
+                <img src="img/download (3).png" alt="" class="close">
                 <a href="Catalogo.html">Nossos brinquedos</a>
                 <a href="Contato.html">Contato</a>
                 <a href="Home.html">Home</a>
@@ -25,6 +33,7 @@
             </nav>
         </div>
     </header>
+
 
 
     <!-- CARD -->
@@ -38,17 +47,25 @@
           <div class="formulario-card">
 
         <img src="img/image_29-removebg-preview 1 (2).png" alt="">
-        <form>
-        <input class="formulario" type="text" placeholder="Seu nome" name="nome">
-        <input class="formulario" type="tel" placeholder="Telefone" name="telefone">
-        <input class="formulario" type="email" placeholder="E-mail" name="email">
-        <textarea class="formulario" placeholder="Mensagem" name="mensagem" rows="3"></textarea>
+        <form id="meu-Formulario">
+        <input class="formulario" type="text" placeholder="Seu nome" name="nome"  required>
+        <input class="formulario" type="tel" placeholder="Telefone" name="telefone"  required>
+        <input class="formulario" type="email" placeholder="E-mail" name="email"  required>
+        <textarea class="formulario" placeholder="Mensagem" name="mensagem" rows="3" required></textarea>
+
+         <button type="submit" class="btn-enviar">Enviar</button>
+
+             <p id="mensagemSucesso" style="display:none; color: green;">Mensagem enviada com sucesso!</p>
+
+
         </form>
 
+
+        <script src="contato.js"></script>
       
     </div>
 
-    <button type="submit" class="btn-enviar">Enviar</button>
+    
 
 
 
@@ -68,7 +85,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         <div>
           <p class="label">Localização:</p>
-          <p class="value">Rua José Gonçalves - 180<br>Bairro: Santa Maria</p>
+          <p class="value"> Rua Sebastião Morgatto, 151<br>Bairro: Colina Verde</p>
         </div>
       </div>
 
