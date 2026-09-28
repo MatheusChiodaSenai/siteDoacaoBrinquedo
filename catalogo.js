@@ -1,4 +1,4 @@
-// Menu hambúrguer (mobile)
+  
 (function () {
   const btnMenu = document.querySelector("header .menu");
   const menuInfo = document.querySelector("header .menuInfo");
