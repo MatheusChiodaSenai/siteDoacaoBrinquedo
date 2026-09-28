@@ -1,17 +1,21 @@
 
-(function () {
-  const btnMenu = document.querySelector("header .menu");
-  const menuInfo = document.querySelector("header .menuInfo");
-  const menuFechar = document.querySelector("header .close");
-  if (!btnMenu || !menuInfo || !menuFechar) return;
+let btn = document.querySelector(".menu")
+let menu = document.querySelector(".menuInfo")
+let menuClose = document.querySelector(".close")
 
-  btnMenu.addEventListener("click", function () {
-    menuInfo.classList.add("itsOpen");
-  });
-  menuFechar.addEventListener("click", function () {
-    menuInfo.classList.remove("itsOpen");
-  });
-})();
+
+btn.addEventListener("click",
+    () => {
+        menu.classList.add("itsOpen")
+        btn.classList.add("a")
+    }
+)
+menuClose.addEventListener("click",
+    () => {
+        menu.classList.remove("itsOpen")
+        btn.classList.remove("a")
+    }
+)
 
 
 const searchInput = document.getElementById("searchInput");
