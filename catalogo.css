@@ -277,7 +277,7 @@ header {
 }
 
 .hero-content p {
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   line-height: 1.4;
   margin-bottom: 30px;
   opacity: 0.9;
@@ -703,7 +703,7 @@ footer {
 
 
 .hero-image img {
-  max-width: 420px;
+  max-width: 480px;
   width: 100%;
   height: auto;
 }
