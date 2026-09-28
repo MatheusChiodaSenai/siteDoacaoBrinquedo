@@ -1,4 +1,4 @@
-  
+
 (function () {
   const btnMenu = document.querySelector("header .menu");
   const menuInfo = document.querySelector("header .menuInfo");
@@ -79,22 +79,6 @@ aplicarLimiteMobile();
 
 
 (function () {
-  const CHAVE_DOADOS = "brinquedosDoados";
-
-  function idsJaDoados() {
-    try {
-      return JSON.parse(localStorage.getItem(CHAVE_DOADOS)) || [];
-    } catch {
-      return [];
-    }
-  }
-
-  function marcarComoDoado(id) {
-    const doados = idsJaDoados();
-    doados.push(id);
-    localStorage.setItem(CHAVE_DOADOS, JSON.stringify(doados));
-  }
-
   const productCards = document.querySelectorAll(".product-card");
 
  
@@ -103,12 +87,6 @@ aplicarLimiteMobile();
   });
 
 
-  const jaDoados = idsJaDoados();
-  productCards.forEach(function (card) {
-    if (jaDoados.includes(card.dataset.brinquedoId)) {
-      card.remove();
-    }
-  });
 
 
   const modalHTML = `
@@ -181,7 +159,6 @@ aplicarLimiteMobile();
 
   btnConfirmar.addEventListener("click", function () {
     if (!cardSelecionado) return;
-    marcarComoDoado(cardSelecionado.dataset.brinquedoId);
     cardSelecionado.remove();
     fecharModal();
   });
