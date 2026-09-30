@@ -1,10 +1,11 @@
-
-
 const form = document.getElementById('formDoacao');
 const input = document.getElementById('valor');
-const textos = document.querySelectorAll('[data-valor-texto]');
 const chips = document.querySelectorAll('.chip');
 const botaoDoar = document.querySelector('.btnDoarValor');
+
+
+const textoOriginalBotao = botaoDoar.innerHTML;
+let confirmacaoTimeout = null;
 
 function valorAtual() {
     const v = parseInt(input.value, 10);
@@ -13,8 +14,15 @@ function valorAtual() {
 
 function atualizar() {
     const v = valorAtual();
-    textos.forEach(t => t.textContent = v.toLocaleString('pt-BR'));
+
+    
+    document.querySelectorAll('[data-valor-texto]').forEach(t => {
+        t.textContent = v.toLocaleString('pt-BR');
+    });
+
     chips.forEach(c => c.classList.toggle('ativo', Number(c.dataset.valor) === v));
+
+   
     botaoDoar.disabled = v === 0;
 }
 
@@ -37,32 +45,32 @@ input.addEventListener('input', atualizar);
 
 form.addEventListener('submit', e => {
     e.preventDefault();
-    
+
+    const valor = valorAtual();
+    if (valor === 0) return;
+
     const dados = Object.fromEntries(new FormData(form));
     console.log('Doação:', dados);
 
-    mostrarConfirmacaoDoacao(valorAtual());
+    mostrarConfirmacaoDoacao(valor);
 });
 
-// Mostra na tela que a doação foi feita: o botão confirma por alguns
-// segundos e um aviso aparece no canto da tela.
 function mostrarConfirmacaoDoacao(valor) {
-    const textoOriginal = botaoDoar.innerHTML;
+    
+    clearTimeout(confirmacaoTimeout);
 
-    botaoDoar.disabled = true;
     botaoDoar.classList.add('doado');
     botaoDoar.innerHTML = `Doação de R$ ${valor.toLocaleString('pt-BR')} confirmada! ✅`;
 
     mostrarToastDoacao(`🎉 Obrigado! Sua doação de R$ ${valor.toLocaleString('pt-BR')} foi registrada.`);
 
-    setTimeout(() => {
+    confirmacaoTimeout = setTimeout(() => {
         botaoDoar.classList.remove('doado');
-        botaoDoar.innerHTML = textoOriginal;
-        botaoDoar.disabled = valorAtual() === 0;
+        botaoDoar.innerHTML = textoOriginalBotao;
+        atualizar(); 
     }, 3500);
 }
 
-// Cria (uma única vez) e mostra um aviso flutuante na tela.
 let toastDoacaoEl = null;
 let toastDoacaoTimeout = null;
 
@@ -82,24 +90,19 @@ function mostrarToastDoacao(mensagem) {
     }, 4000);
 }
 
-let btn = document.querySelector(".menu")
-let menu = document.querySelector(".menuInfo")
-let menuClose = document.querySelector(".close")
 
+let btn = document.querySelector(".menu");
+let menu = document.querySelector(".menuInfo");
+let menuClose = document.querySelector(".close");
 
-btn.addEventListener("click",
-    () => {
-        menu.classList.add("itsOpen")
-        btn.classList.add("a")
-    }
-)
-menuClose.addEventListener("click",
-    () => {
-        menu.classList.remove("itsOpen")
-        btn.classList.remove("a")
-    }
-)
+btn.addEventListener("click", () => {
+    menu.classList.add("itsOpen");
+    btn.classList.add("a");
+});
+
+menuClose.addEventListener("click", () => {
+    menu.classList.remove("itsOpen");
+    btn.classList.remove("a");
+});
 
 atualizar();
-
-

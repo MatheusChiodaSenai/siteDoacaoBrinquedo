@@ -720,6 +720,11 @@ footer {
   }
 }
 
+.social-icons a {
+  &:hover {
+    background-color: #c5c5c5;
+  }
+}
 
 @media (max-width: 600px) {
 

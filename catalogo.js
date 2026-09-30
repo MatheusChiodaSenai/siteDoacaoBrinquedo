@@ -1,4 +1,3 @@
-
 (function () {
   const btnMenu = document.querySelector("header .menu");
   const menuInfo = document.querySelector("header .menuInfo");
@@ -14,118 +13,89 @@
 })();
 
 
-const searchInput = document.getElementById("searchInput");
-const cards = document.querySelectorAll(".product-card");
-const btnVerMais = document.getElementById("btnVerMais");
-const verMaisContainer = document.getElementById("verMaisContainer");
-
-
-const LIMITE_MOBILE = 6;
-const LARGURA_MOBILE = 900; 
-
-function aplicarLimiteMobile() {
-  const isMobile = window.innerWidth <= LARGURA_MOBILE;
-
-  cards.forEach(function (card, index) {
-    if (isMobile && index >= LIMITE_MOBILE) {
-      card.classList.add("escondido-mobile");
-    } else {
-      card.classList.remove("escondido-mobile");
-    }
-  });
-
-
-  const existemEscondidos = document.querySelectorAll(".product-card.escondido-mobile").length > 0;
-  verMaisContainer.style.display = (isMobile && existemEscondidos) ? "flex" : "none";
-}
-
-function filtrarBrinquedos() {
-  const pesquisa = searchInput.value.toLowerCase().trim();
-  const pesquisando = pesquisa.length > 0;
-
-  if (pesquisando) {
-    
-    verMaisContainer.style.display = "none";
-  }
-
-  cards.forEach(function (card) {
-    const nomeBrinquedo = card.querySelector("h3").textContent
-      .toLowerCase()
-      .trim();
-
-    if (pesquisando) {
-      card.classList.remove("escondido-mobile");
-      card.style.display = nomeBrinquedo.includes(pesquisa) ? "" : "none";
-    } else {
-      card.style.display = "";
-      aplicarLimiteMobile();
-    }
-  });
-}
-
-btnVerMais.addEventListener("click", function () {
-  cards.forEach(function (card) {
-    card.classList.remove("escondido-mobile");
-  });
-  verMaisContainer.style.display = "none";
-});
-
-window.addEventListener("resize", aplicarLimiteMobile);
-searchInput.addEventListener("input", filtrarBrinquedos);
-
-
-aplicarLimiteMobile();
-
-
-
-const sortSelect = document.getElementById("sortSelect");
-const productsGrid = document.querySelector(".products-grid");
-const ordemOriginal = Array.from(cards); 
-
-function ordenarBrinquedos() {
-  if (!sortSelect || !productsGrid) return;
-
-  const valor = sortSelect.value;
-  let cardsOrdenados;
-
-  if (valor === "recentes") {
-    
-    cardsOrdenados = Array.from(cards).sort(function (a, b) {
-      return Number(b.dataset.brinquedoId) - Number(a.dataset.brinquedoId);
-    });
-  } else if (valor === "antigos") {
-   
-    cardsOrdenados = Array.from(cards).sort(function (a, b) {
-      return Number(a.dataset.brinquedoId) - Number(b.dataset.brinquedoId);
-    });
-  } else {
-    cardsOrdenados = ordemOriginal;
-  }
-
-  cardsOrdenados.forEach(function (card) {
-    productsGrid.appendChild(card);
-  });
-
-  aplicarLimiteMobile();
-}
-
-if (sortSelect) {
-  sortSelect.addEventListener("change", ordenarBrinquedos);
-}
-
-
-
 (function () {
-  const productCards = document.querySelectorAll(".product-card");
+  const productsGrid = document.querySelector(".products-grid");
+  if (!productsGrid) return; // não é a página do catálogo
 
- 
-  productCards.forEach(function (card, index) {
+  const searchInput = document.getElementById("searchInput");
+  const sortSelect = document.getElementById("sortSelect");
+  const btnVerMais = document.getElementById("btnVerMais");
+  const verMaisContainer = document.getElementById("verMaisContainer");
+
+  const LIMITE_MOBILE = 6;
+  const LARGURA_MOBILE = 900;
+
+  
+  const todosCards = Array.from(productsGrid.querySelectorAll(".product-card"));
+  todosCards.forEach(function (card, index) {
     card.dataset.brinquedoId = String(index);
   });
 
+  const removidos = new Set();
+  let mostrarTudo = false;
 
+  function idDe(card) {
+    return Number(card.dataset.brinquedoId);
+  }
 
+  function atualizar() {
+    const pesquisa = searchInput ? searchInput.value.toLowerCase().trim() : "";
+    const pesquisando = pesquisa.length > 0;
+    const isMobile = window.innerWidth <= LARGURA_MOBILE;
+    const ordem = sortSelect ? sortSelect.value : "recentes";
 
+    
+    const ativos = todosCards.filter(function (card) {
+      return !removidos.has(card);
+    });
+
+    
+    ativos.sort(function (a, b) {
+      return ordem === "antigos" ? idDe(b) - idDe(a) : idDe(a) - idDe(b);
+    });
+    ativos.forEach(function (card) {
+      productsGrid.appendChild(card);
+    });
+
+    
+    let visiveis = 0;
+    let existemEscondidos = false;
+
+    ativos.forEach(function (card) {
+      const nome = card.querySelector("h3").textContent.toLowerCase().trim();
+      const bateBusca = !pesquisando || nome.includes(pesquisa);
+
+      if (!bateBusca) {
+        card.style.display = "none";
+        card.classList.remove("escondido-mobile");
+        return;
+      }
+
+      card.style.display = "";
+      visiveis++;
+
+      const passouDoLimite = isMobile && !pesquisando && !mostrarTudo && visiveis > LIMITE_MOBILE;
+      card.classList.toggle("escondido-mobile", passouDoLimite);
+      if (passouDoLimite) existemEscondidos = true;
+    });
+
+    
+    if (verMaisContainer) {
+      verMaisContainer.style.display = existemEscondidos ? "flex" : "none";
+    }
+  }
+
+  if (btnVerMais) {
+    btnVerMais.addEventListener("click", function () {
+      mostrarTudo = true;
+      atualizar();
+    });
+  }
+  if (searchInput) searchInput.addEventListener("input", atualizar);
+  if (sortSelect) sortSelect.addEventListener("change", atualizar);
+  window.addEventListener("resize", atualizar);
+
+  
   const modalHTML = `
     <div class="modalBrinquedoFundo" id="modalBrinquedoFundo">
       <div class="modalBrinquedo">
@@ -178,7 +148,7 @@ if (sortSelect) {
     cardSelecionado = null;
   }
 
-  productCards.forEach(function (card) {
+  todosCards.forEach(function (card) {
     card.style.cursor = "pointer";
     card.addEventListener("click", function () {
       abrirModal(card);
@@ -196,7 +166,11 @@ if (sortSelect) {
 
   btnConfirmar.addEventListener("click", function () {
     if (!cardSelecionado) return;
+    removidos.add(cardSelecionado);
     cardSelecionado.remove();
     fecharModal();
+    atualizar(); 
   });
+
+  atualizar();
 })();

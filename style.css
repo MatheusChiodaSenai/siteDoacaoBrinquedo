@@ -211,12 +211,12 @@ main {
 .card {
     position: relative;
     background-color: #fff;
-    width: calc(100% - 40px);
+    width: calc(100% - 40px);   
     max-width: 900px;
     border-radius: 28px;
     padding: 48px 46px 100px;
     overflow: hidden;
-    margin: 80px auto 0;
+    margin: 80px auto 0;       
 
     @media (max-width: 550px) {
         width: calc(100% - 30px);
@@ -229,6 +229,7 @@ main {
         }
     }
 }
+ 
   h1.title{
     text-align:center;
     font-size: 26px;
@@ -249,17 +250,19 @@ main {
         right: -40px;
         width: 370px;     
         z-index: 2; 
-        
+    }
 
+    @media(max-width:650px) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-       
-  }
-
-   @media(max-width:650px) {
-          display: flex;
-          align-items: center;
-          justify-content: center;
+    @media (max-width: 550px) {
+        img {
+            display: none;
         }
+    }
 }
 
   form{
