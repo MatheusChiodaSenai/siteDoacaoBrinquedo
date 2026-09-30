@@ -1008,7 +1008,7 @@ footer {
 
 
 
-@media (min-width: 451px) and (max-width: 900px) {
+@media (min-width: 450px) and (max-width: 900px) {
     .hero {
         padding-top: 150px;
     }
